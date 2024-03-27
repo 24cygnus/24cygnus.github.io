@@ -1,0 +1,77 @@
+.countdown-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 45vh;
+    text-shadow: 2px 2px 4px #ffffff;
+    flex-wrap: nowrap;
+}
+
+.countdown-body .header {
+    font-size: 20px;
+    letter-spacing: 5px;
+    width: 86%;
+    text-align: center;
+    color: aqua;
+    -webkit-text-stroke: 1px;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+    margin-top: 3vw; /* Adjusted margin to be responsive */
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12vw; /* Adjusted width to be responsive */
+    height: 12vw; /* Adjusted height to be responsive */
+    font-size: 3.5vw; /* Adjusted font-size to be responsive */
+    color: hsl(0, 0%, 100%);
+    background-color: hsl(225, 62%, 25%);
+    box-shadow: 2px 2px 4px #136bab;
+    border-radius: 5px;
+}
+
+.days p,
+.hours p,
+.minutes p,
+.seconds p {
+    font-size: 1.5vw; /* Adjusted font-size to be responsive */
+    letter-spacing: 0.5vw; /* Adjusted letter-spacing to be responsive */
+    color: hsl(0, 0%, 100%);
+    text-align: center;
+    margin-top: 1.3vw; /* Adjusted margin-top to be responsive */
+}
+
+@media only screen and (min-width: 800px) {
+    .countdown-body .header {
+        font-size: 23px;
+        letter-spacing: 10px;
+        margin-top: 10px;
+        margin-bottom: 4vw; /* Adjusted margin-bottom to be responsive */
+    }
+
+    .box {
+        width: 10vw; /* Adjusted width to be responsive */
+        height: 10vw; /* Adjusted height to be responsive */
+        font-size: 2.5vw; /* Adjusted font-size to be responsive */
+    }
+
+    .days p,
+    .hours p,
+    .minutes p,
+    .seconds p {
+        font-size: 1.5vw;
+        margin-top: 2.5vw; /* Adjusted margin-top to be responsive */
+    }
+}
+
+.parent_container {
+    text-align: right;
+}

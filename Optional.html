@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYGNUS EVENT REGISTRATION FORM</title>
+    <style>
+        /* Your CSS styles remain unchanged */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea,
+        select,
+        button[type="submit"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #qrCodeContainer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #qrCode {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .paymentLink {
+            margin-bottom: 20px;
+        }
+
+        .paymentButton {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .paymentButton:hover {
+            background-color: #0056b3;
+        }
+
+        #teamDetails8_8 {
+            display: none;
+        }
+
+        #confirmParticipantsButton {
+            margin-left: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        #confirmParticipantsButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cygnus Registration Form</h2>
+        <form id="registrationForm">
+
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <label for="college">College:</label>
+            <input type="text" id="college" name="college" required>
+            
+            <label for="collegeId">College ID (Registration/Roll Number):</label>
+            <input type="text" id="collegeId" name="collegeId" required>
+            
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" required>
+
+            <!-- Your form inputs remain unchanged -->
+
+            <label for="comboPack">Combo Pack:</label>
+            <input type="checkbox" id="comboPack" name="comboPack" value="Combo Pack"> Combo Pack (All Events - Rs. 300)<br>
+
+            <label for="events">Choose Events:</label><br>
+            <input type="checkbox" id="event1.1" class="eventCheckbox" name="events[]" value="Event 1.1"> Event 1.1 (Rs. 100)<br>
+            <input type="checkbox" id="event2.2" class="eventCheckbox" name="events[]" value="Event 2.2"> Event 2.2 (Rs. 100)<br>
+            <input type="checkbox" id="event3.3" class="eventCheckbox" name="events[]" value="Event 3.3"> Event 3.3 (Rs. 100)<br>
+            <input type="checkbox" id="event4.4" class="eventCheckbox" name="events[]" value="Event 4.4"> Event 4.4 (Rs. 100)<br>
+            <input type="checkbox" id="event5.5" class="eventCheckbox" name="events[]" value="Event 5.5"> Event 5.5 (Rs. 100)<br>
+            <label for="event6_6">Event 6.6 (Group Event - Rs. 100 per member):</label>
+            <input type="checkbox" id="event6_6" class="eventCheckbox" name="events[]" value="Event 6.6">
+            Event 6.6 (Group Event - Rs. 100 per member)<br>
+            <div id="teamDetails6_6" style="display: none;">
+                <h3>Team Members Details for Event 6.6</h3>
+                <div class="memberInput">
+                    <label for="teamMember1Name6_6">Member 1 Name:</label>
+                    <input type="text" id="teamMember1Name6_6" name="teamMember1Name6_6" required>
+                </div>
+                <div class="memberInput">
+                    <label for="teamMember1Phone6_6">Member 1 Phone Number:</label>
+                    <input type="tel" id="teamMember1Phone6_6" name="teamMember1Phone6_6" required>
+                </div>
+                <div class="memberInput">
+                    <label for="teamMember2Name6_6">Member 2 Name:</label>
+                    <input type="text" id="teamMember2Name6_6" name="teamMember2Name6_6" required>
+                </div>
+                <div class="memberInput">
+                    <label for="teamMember2Phone6_6">Member 2 Phone Number:</label>
+                    <input type="tel" id="teamMember2Phone6_6" name="teamMember2Phone6_6" required>
+                </div>
+            </div>
+            <label for="event8_8">Event 8.8 (Group Event - Rs. 100 per member):</label>
+            <input type="checkbox" id="event8_8" class="eventCheckbox" name="events[]" value="Event 8.8">
+            Event 8.8 (Group Event - Rs. 100 per member)<br>
+
+            <div id="teamSizePanel8_8" style="display: none;">
+                <label for="teamSizeInput8_8">Number of Participants (Max 10):</label>
+                <input type="number" id="teamSizeInput8_8" name="teamSizeInput8_8" min="1" max="10">
+                <button type="button" id="confirmParticipantsButton" onclick="confirmParticipants()">Confirm Participants</button>
+            </div>
+
+            <div id="teamDetails8_8" style="display: none;">
+                <h3>Team Members Details for Event 8.8</h3>
+            </div>
+
+            <button type="button" id="upiPaymentButton" class="paymentButton">Proceed to Payment</button>
+
+            <div id="totalAmount"></div>
+
+            <div id="qrCodeContainer" style="display: none;">
+                <label for="qrCode">QR Code for Payment:</label><br>
+                <img id="qrCode" src="" alt="QR Code">
+            </div>
+
+            <label for="upiId">Your UPI ID:</label>
+            <input type="text" id="upiId" name="upiId" required>
+            
+            <label for="transactionNumber">Transaction Number:</label>
+            <input type="text" id="transactionNumber" name="transactionNumber" required>
+
+        </form>
+    </div>
+
+    <script>
+        const checkboxes = document.querySelectorAll('.eventCheckbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                generateQR();
+                handleEventSpecificFields();
+            });
+        });
+
+        const eventCheckbox8_8 = document.getElementById('event8_8');
+        const eventCheckbox6_6 = document.getElementById('event6_6');
+        const teamSizePanel8_8 = document.getElementById('teamSizePanel8_8');
+        const teamDetails8_8 = document.getElementById('teamDetails8_8');
+        const teamDetails6_6 = document.getElementById('teamDetails6_6');
+
+        function handleEventSpecificFields() {
+            if (eventCheckbox8_8.checked) {
+                teamSizePanel8_8.style.display = 'block';
+                showTeamDetailsPanel8_8();
+            } else {
+                teamSizePanel8_8.style.display = 'none';
+                hideTeamDetailsPanel8_8();
+            }
+
+            if (eventCheckbox6_6.checked) {
+                teamDetails6_6.style.display = 'block';
+            } else {
+                teamDetails6_6.style.display = 'none';
+            }
+        }
+
+        function showTeamDetailsPanel8_8() {
+            const teamSizeInput8_8 = document.getElementById('teamSizeInput8_8');
+            const teamDetailsContent = document.createElement('div');
+            teamDetailsContent.className = 'memberInput';
+            teamDetailsContent.innerHTML = `
+                <h3>Team Members Details for Event 8.8</h3>
+            `;
+            for (let i = 1; i <= teamSizeInput8_8.value; i++) {
+                const memberDiv = document.createElement('div');
+                memberDiv.innerHTML = `
+                    <label for="teamMember${i}Name8_8">Member ${i} Name:</label>
+                    <input type="text" id="teamMember${i}Name8_8" name="teamMember${i}Name8_8" required><br>
+                    <label for="teamMember${i}Phone8_8">Member ${i} Phone Number:</label>
+                    <input type="tel" id="teamMember${i}Phone8_8" name="teamMember${i}Phone8_8" required><br>
+                `;
+                teamDetailsContent.appendChild(memberDiv);
+            }
+            teamDetails8_8.innerHTML = '';
+            teamDetails8_8.appendChild(teamDetailsContent);
+            teamDetails8_8.style.display = 'block';
+        }
+
+        function hideTeamDetailsPanel8_8() {
+            teamDetails8_8.style.display = 'none';
+        }
+
+        async function generateQR() {
+            const formData = new FormData(document.getElementById('registrationForm'));
+            const totalAmount = calculateTotal(formData);
+            const qrCode = document.getElementById('qrCode');
+            const qrCodeContainer = document.getElementById('qrCodeContainer');
+            const totalAmountContainer = document.getElementById('totalAmount');
+            const qrData = `upi://pay?pa=magesh17032003@oksbi&pn=Mageshkumar%20K&am=${totalAmount}&cu=INR&aid=uGICAgMCy_PLaYw`;
+            
+            qrCodeContainer.style.display = 'block';
+            qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(qrData)}`;
+            totalAmountContainer.textContent = `Total Amount Payable: Rs. ${totalAmount}`;
+        }
+
+        function calculateTotal(formData) {
+            let total = 0;
+            if (formData.has('events[]')) {
+                const events = formData.getAll('events[]');
+                events.forEach(event => {
+                    if (event === "Event 9.9") {
+                        total += 60;
+                    } else if (event === "Event 10.0") {
+                        total += 180;
+                    } else if (event === "Event 6.6" || event === "Event 8.8") {
+                        const teamSize = event === "Event 6.6" ? 2 : parseInt(formData.get('teamSizeInput8_8'));
+                        total += teamSize * 100;
+                    } else {
+                        total += 100;
+                    }
+                });
+            }
+            if (formData.has('comboPack')) {
+                total += 300;
+            }
+            return total.toFixed(2);
+        }
+
+        function confirmParticipants() {
+            showTeamDetailsPanel8_8();
+        }
+
+        document.getElementById('registrationForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+
+            try {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbwzvnN-fgD0Q7Qp7V0G34XvFesFhFZueCI7DEes7wvP-BgblkTMMYNjm-nI1MR5f_qG-w/exec', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+                alert(data.message);
+                this.reset();
+                window.location.href = "success.html";
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            }
+        });
+    </script>
+</body>
+</html>
