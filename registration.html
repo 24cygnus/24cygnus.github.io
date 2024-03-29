@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CYGNUS EVENT REGISTRATION FORM</title>
     <style>
+        /* Your CSS styles remain unchanged */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
             color: #333;
             margin: 0;
             padding: 0;
@@ -47,7 +48,8 @@
         input[type="tel"],
         textarea,
         select,
-        button[type="submit"] {
+        button[type="submit"],
+        input[type="number"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
@@ -95,12 +97,40 @@
         .paymentButton:hover {
             background-color: #0056b3;
         }
+
+        #teamDetails8_8 {
+            display: none;
+        }
+
+        #confirmParticipantsButton {
+            margin-left: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        #confirmParticipantsButton:hover {
+            background-color: #0056b3;
+        }
+
+        .memberDetails {
+            display: none;
+        }
+
+        .memberDetails.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Cygnus Registration Form</h2>
-        <form id="registrationForm">
+        <form id="registrationForm" method="post" enctype="multipart/form-data">
+
             <label for="fullName">Full Name:</label>
             <input type="text" id="fullName" name="fullName" required>
             
@@ -118,31 +148,65 @@
             
             <label for="department">Department:</label>
             <input type="text" id="department" name="department" required>
+
+            <!-- Your form inputs remain unchanged -->
+
             
             <label for="events">Choose Events:</label><br>
-            <input type="checkbox" id="event1.1" class="eventCheckbox" name="events[]" value="Event 1.1"> Event 1.1 (Rs. 100)<br>
-            <input type="checkbox" id="event2.2" class="eventCheckbox" name="events[]" value="Event 2.2"> Event 2.2 (Rs. 100)<br>
-            <input type="checkbox" id="event3.3" class="eventCheckbox" name="events[]" value="Event 3.3"> Event 3.3 (Rs. 100)<br>
-            <input type="checkbox" id="event4.4" class="eventCheckbox" name="events[]" value="Event 4.4"> Event 4.4 (Rs. 100)<br>
-            <input type="checkbox" id="event5.5" class="eventCheckbox" name="events[]" value="Event 5.5"> Event 5.5 (Rs. 100)<br>
-            <input type="checkbox" id="event6.6" class="eventCheckbox" name="events[]" value="Event 6.6"> Event 6.6 (Rs. 100)<br>
-            <input type="checkbox" id="event7.7" class="eventCheckbox" name="events[]" value="Event 7.7"> Event 7.7 (Rs. 100)<br>
-            <input type="checkbox" id="event8.8" class="eventCheckbox" name="events[]" value="Event 8.8"> Event 8.8 (Rs. 100)<br>
-            <input type="checkbox" id="event9.9" class="eventCheckbox" name="events[]" value="Event 9.9"> Event 9.9 (Rs. 60)<br>
-            <input type="checkbox" id="event10.0" class="eventCheckbox" name="events[]" value="Event 10.0"> Event 10.0 (Rs. 180)<br>
-            <span>or</span><br>
-            <input type="checkbox" id="comboPack" name="comboPack" value="Combo Pack"> Combo Pack (All Events - Rs. 300)<br>
+            <label for="events">Technical Events:</label><br>
+            <input type="checkbox" id="Brain Buster" class="eventCheckbox" name="events[]" value="Brain Buster"> Brain Buster <br>
+            <input type="checkbox" id="Circuit Debugging" class="eventCheckbox" name="events[]" value="Circuit Debugging"> Circuit Debugging (Team of 3)<br>
+            <div id="circuitDebuggingDetails" class="memberDetails">
+                <label for="member1Name">Enter the Member Name in comma seperated value:</label>
+                <input type="text" id="member1Name" name="member1Name">
+                              
+            </div>
+            <input type="checkbox" id="Clash of minds" class="eventCheckbox" name="events[]" value="Clash of minds"> Clash of minds (Team of 3)<br>
+            <div id="clashOfMindsDetails" class="memberDetails">
+                <label for="clashMember1Name">Enter the Member Name in comma separated value:</label>
+                <input type="text" id="clashMember1Name" name="clashMember1Name">
+            </div>
+            <input type="checkbox" id="project expo" class="eventCheckbox" name="events[]" value="project expo"> project expo (Maximum 3 participant per team)<br>
+            <div id="projectExpoDetails" class="memberDetails">
+                <label for="projectExpoMember1Name">Enter the Member Name in comma separated value:</label>
+                <input type="text" id="projectExpoMember1Name" name="projectExpoMember1Name">
+            </div>
             
-            <!-- Your form inputs here -->
+            <label for="events">Non-Technical Event:</label><br>
 
-            <!-- Button for UPI Payment -->
-            <button type="button" id="upiPaymentButton" class="paymentButton">Redirect to UPI payment</button>
+            <input type="checkbox" id="Food Feast" class="eventCheckbox" name="events[]" value="Food Feast"> Food Feast (3 participant per team)<br>
+            <div id="foodFeastDetails" class="memberDetails">
+                <label for="foodFeastMember1Name">Enter the Member Name in comma separated value:</label>
+                <input type="text" id="foodFeastMember1Name" name="foodFeastMember1Name">
+            </div>
+            <input type="checkbox" id="HallOfWar" class="eventCheckbox" name="events[]" value="Hall Of War"> Hall of War<br>
+            <div id="hallOfWarDetails" class="memberDetails">
+                <label for="hallOfWarMember1Name">Enter the Member Name in comma separated value:</label>
+                <input type="text" id="hallOfWarMember1Name" name="hallOfWarMember1Name">
+            </div>
+            <input type="checkbox" id="Futsal" class="eventCheckbox" name="events[]" value="Futsal"> Futsal<br>
+            <div id="futsalDetails" class="memberDetails">
+                <label for="futsalMember1Name">Enter the Member Name in comma separated value:</label>
+                <input type="text" id="futsalMember1Name" name="futsalMember1Name">
+            </div>
+            <label for="events">Show Your Talent:</label><br>
+            <input type="checkbox" id="Photography" class="eventCheckbox" name="events[]" value="Photography"> Photography<br>
+            <input type="checkbox" id="Dance" class="eventCheckbox" name="events[]" value="Dance"> Dance<br>
+            <div id="danceDetails" class="memberDetails">
+                <label for="danceMember1Name">Enter the Member Name in comma separated value:</label>
+                <input type="text" id="danceMember1Name" name="danceMember1Name">
+            </div>
+            <input type="checkbox" id="Singing" class="eventCheckbox" name="events[]" value="Singing"> Singing<br>
+            <input type="checkbox" id="Silambam" class="eventCheckbox" name="events[]" value="Silambam"> Silambam<br>
+
+            <div id="totalAmount"></div>
+            <button type="button" id="fetchAmountButton" class="paymentButton" onclick="fetchAmount()">Fetch Amount</button>
 
             <div id="qrCodeContainer" style="display: none;">
                 <label for="qrCode">QR Code for Payment:</label><br>
                 <img id="qrCode" src="" alt="QR Code">
-                
             </div>
+            <button type="button" id="upiPaymentButton" class="paymentButton" onclick="proceedToPayment()">Proceed to Payment</button>
 
             <label for="upiId">Your UPI ID:</label>
             <input type="text" id="upiId" name="upiId" required>
@@ -150,75 +214,175 @@
             <label for="transactionNumber">Transaction Number:</label>
             <input type="text" id="transactionNumber" name="transactionNumber" required>
 
-            <!-- Remaining form inputs -->
-            
             <button type="submit">Submit</button>
+
         </form>
     </div>
-    <script>
+    <!-- Your HTML code -->
+        
 
+
+    <script>
         const checkboxes = document.querySelectorAll('.eventCheckbox');
         checkboxes.forEach(checkbox => {
             checkbox.addEventListener('change', function() {
                 generateQR();
+                toggleMemberDetails(); // Call function to toggle member details
             });
         });
+
+        // JavaScript code
+        async function fetchAmount() {
+            generateQR();
+        }
 
         async function generateQR() {
             const formData = new FormData(document.getElementById('registrationForm'));
             const totalAmount = calculateTotal(formData);
-            const upiId = document.getElementById('upiId').value;
-            const transactionNumber = document.getElementById('transactionNumber').value;
             const qrCode = document.getElementById('qrCode');
             const qrCodeContainer = document.getElementById('qrCodeContainer');
-            const paymentLink = document.getElementById('paymentLink');
+            const totalAmountContainer = document.getElementById('totalAmount');
             const qrData = `upi://pay?pa=magesh17032003@oksbi&pn=Mageshkumar%20K&am=${totalAmount}&cu=INR&aid=uGICAgMCy_PLaYw`;
-            
+
             qrCodeContainer.style.display = 'block';
-            qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(qrData)}`;
-            paymentButton.textContent = "Pay Now";
-            paymentButton.href = qrData;
+            qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(qrData)}&size=150x150&margin=0`;
+
+
+            
+            totalAmountContainer.textContent = `Total Amount Payable: Rs. ${totalAmount}`;
+        }
+        function proceedToPayment() {
+            const upiId = document.getElementById('upiId').value;
+            const totalAmount = document.getElementById('totalAmount').textContent.replace('Total Amount Payable: Rs. ', '');
+            const transactionNumber = document.getElementById('transactionNumber').value;
+            const paymentLink = `upi://pay?pa=magesh17032003@oksbi&pn=Mageshkumar%20K&am=${totalAmount}&cu=INR&tid=${transactionNumber}&aid=uGICAgMCy_PLaYw`;
+
+            window.location.href = paymentLink;
         }
 
         function calculateTotal(formData) {
             let total = 0;
             if (formData.has('events[]')) {
                 const events = formData.getAll('events[]');
-                events.forEach(event => {
-                    if (event === "Event 9.9") {
-                        total += 60;
-                    } else if (event === "Event 10.0") {
-                        total += 180;
-                    } else {
-                        total += 100;
-                    }
-                });
+                if (events.includes("Food Feast")) {
+                    total = 250; // If Food Feast is included, fixed amount is Rs. 250
+                } else {
+                    total = 50; // Otherwise, fixed amount is Rs. 50
+                }
             }
-            if (formData.has('comboPack')) {
-                total += 300;
-            }
-            return total.toFixed(2); // Round to 2 decimal places
+            return total.toFixed(2);
         }
 
-        document.getElementById('registrationForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-
-            try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbwzvnN-fgD0Q7Qp7V0G34XvFesFhFZueCI7DEes7wvP-BgblkTMMYNjm-nI1MR5f_qG-w/exec', {
-                    method: 'POST',
-                    body: formData
-                });
-                const data = await response.json();
-                alert(data.message);
-                this.reset();
-                window.location.href = "success.html"; // Redirect to success page
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again later.');
+        // Function to toggle display of member details based on Circuit Debugging checkbox
+        function toggleMemberDetails() {
+            const circuitDebuggingCheckbox = document.getElementById('Circuit Debugging');
+            const circuitDebuggingDetails = document.getElementById('circuitDebuggingDetails');
+            if (circuitDebuggingCheckbox.checked) {
+                circuitDebuggingDetails.classList.add('active');
+            } else {
+                circuitDebuggingDetails.classList.remove('active');
             }
+        }
+        // Event Listener for "Clash of minds" Checkbox
+        document.getElementById('Clash of minds').addEventListener('change', function() {
+            toggleClashOfMindsDetails();
         });
-        // JavaScript code remains unchanged
+        document.getElementById('project expo').addEventListener('change', function() {
+            toggleProjectExpoDetails();
+        });
+
+        // Event Listener for "Food Feast" Checkbox
+        document.getElementById('Food Feast').addEventListener('change', function() {
+            toggleFoodFeastDetails();
+        });
+        document.getElementById('Futsal').addEventListener('change', function() {
+            toggleFutsalDetails();
+        });
+        document.getElementById('HallOfWar').addEventListener('change', function() {
+            toggleHallOfWarDetails();
+        });
+    
+        // Event Listener for "Dance" Checkbox
+        document.getElementById('Dance').addEventListener('change', function() {
+            toggleDanceDetails();
+        });
+
+        // Function to toggle display of member details for Clash of minds
+        function toggleClashOfMindsDetails() {
+            const clashCheckbox = document.getElementById('Clash of minds');
+            const clashDetails = document.getElementById('clashOfMindsDetails');
+            if (clashCheckbox.checked) {
+                clashDetails.classList.add('active');
+            } else {
+                clashDetails.classList.remove('active');
+            }
+        }
+        function toggleProjectExpoDetails() {
+            const projectExpoCheckbox = document.getElementById('project expo');
+            const projectExpoDetails = document.getElementById('projectExpoDetails');
+            if (projectExpoCheckbox.checked) {
+                projectExpoDetails.classList.add('active');
+            } else {
+                projectExpoDetails.classList.remove('active');
+            }
+        }
+
+        // Function to toggle display of member details for Food Feast
+        function toggleFoodFeastDetails() {
+            const foodFeastCheckbox = document.getElementById('Food Feast');
+            const foodFeastDetails = document.getElementById('foodFeastDetails');
+            if (foodFeastCheckbox.checked) {
+                foodFeastDetails.classList.add('active');
+            } else {
+                foodFeastDetails.classList.remove('active');
+            }
+        }
+        function toggleFutsalDetails() {
+            const futsalCheckbox = document.getElementById('Futsal');
+            const futsalDetails = document.getElementById('futsalDetails');
+            if (futsalCheckbox.checked) {
+                futsalDetails.classList.add('active');
+            } else {
+                futsalDetails.classList.remove('active');
+            }
+        }
+        function toggleHallOfWarDetails() {
+            const hallOfWarCheckbox = document.getElementById('HallOfWar');
+            const hallOfWarDetails = document.getElementById('hallOfWarDetails');
+            if (hallOfWarCheckbox.checked) {
+                hallOfWarDetails.classList.add('active');
+            } else {
+                hallOfWarDetails.classList.remove('active');
+            }
+        }
+    
+        // Function to toggle display of member details for Dance
+        function toggleDanceDetails() {
+            const danceCheckbox = document.getElementById('Dance');
+            const danceDetails = document.getElementById('danceDetails');
+            if (danceCheckbox.checked) {
+                danceDetails.classList.add('active');
+            } else {
+                danceDetails.classList.remove('active');
+            }
+        }
+        async function submitForm(event) {
+            event.preventDefault();
+            const form = document.getElementById('registrationForm');
+            const formData = new FormData(form);
+            const url = 'https://script.google.com/macros/s/AKfycbwC-VSMV8grnNYCeuYxBdwUkIKjbbVY0cl7q6iDb8LMpIr0JHyhtU8HhWLcIguiuC-w/exec'; // Replace with your web app URL
+    
+            await fetch(url, {
+                method: 'POST',
+                body: formData
+            });
+    
+            alert('Form submitted successfully!');
+            form.reset();
+        }
+
+        
+            
     </script>
 </body>
 </html>
