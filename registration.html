@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYGNUS EVENT REGISTRATION FORM</title>
+    <title>Event Registration</title>
+    <!-- Add your CSS styles here -->
     <style>
-        /* Your CSS styles remain unchanged */
+        /* Add your CSS styles here */
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
@@ -17,7 +18,6 @@
             align-items: center;
             min-height: 100vh;
         }
-
         .container {
             max-width: 600px;
             background-color: #fff;
@@ -26,31 +26,28 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-
         h2 {
             color: #007bff;
             margin-bottom: 30px;
         }
-
         form {
             text-align: left;
         }
-
         label {
             font-weight: bold;
             color: #555;
             display: block;
             margin-bottom: 5px;
         }
-
         input[type="text"],
         input[type="email"],
         input[type="tel"],
         textarea,
         select,
         button[type="submit"],
-        input[type="number"] {
-            width: 100%;
+        input[type="number"],
+        input[type="checkbox"] {
+            width: auto;
             padding: 10px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
@@ -58,33 +55,19 @@
             box-sizing: border-box;
             font-size: 16px;
         }
-
         button[type="submit"] {
             background-color: #007bff;
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            border: none; /* Added border: none; */
+            border-radius: 5px; /* Added border-radius: 5px; */
+            padding: 10px 20px; /* Added padding: 10px 20px; */
         }
-
         button[type="submit"]:hover {
             background-color: #0056b3;
         }
-
-        #qrCodeContainer {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        #qrCode {
-            max-width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .paymentLink {
-            margin-bottom: 20px;
-        }
-
-        .paymentButton {
+        .paymentButton { /* Added this class */
             background-color: #007bff;
             color: #fff;
             border: none;
@@ -92,146 +75,98 @@
             padding: 10px 20px;
             cursor: pointer;
             text-decoration: none;
+            margin-top: 20px; /* Added margin-top: 20px; */
         }
-
         .paymentButton:hover {
             background-color: #0056b3;
-        }
-
-        #teamDetails8_8 {
-            display: none;
-        }
-
-        #confirmParticipantsButton {
-            margin-left: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        #confirmParticipantsButton:hover {
-            background-color: #0056b3;
-        }
-
-        .memberDetails {
-            display: none;
-        }
-
-        .memberDetails.active {
-            display: block;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Cygnus Registration Form</h2>
-        <form id="registrationForm" method="post" enctype="multipart/form-data">
-
+        <form id="registrationForm" method="post" action="https://script.google.com/macros/s/AKfycbxt1l95LnBmTYzd0X9cVGjT_ArnriXGp36_NhvXtVVAH4EKp7GKiysk1T_zpokKLYjPPQ/exec">
             <label for="fullName">Full Name:</label>
             <input type="text" id="fullName" name="fullName" required>
-            
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-            
             <label for="phone">Phone Number:</label>
             <input type="tel" id="phone" name="phone" required>
-            
             <label for="college">College:</label>
             <input type="text" id="college" name="college" required>
-            
             <label for="collegeId">College ID (Registration/Roll Number):</label>
             <input type="text" id="collegeId" name="collegeId" required>
-            
             <label for="department">Department:</label>
             <input type="text" id="department" name="department" required>
-
-            <!-- Your form inputs remain unchanged -->
-
-            
-            <label for="events">Choose Events:</label><br>
-            <label for="events">Technical Events:</label><br>
-            <input type="checkbox" id="Brain Buster" class="eventCheckbox" name="events[]" value="Brain Buster"> Brain Buster <br>
-            <input type="checkbox" id="Circuit Debugging" class="eventCheckbox" name="events[]" value="Circuit Debugging"> Circuit Debugging (Team of 3)<br>
-            <div id="circuitDebuggingDetails" class="memberDetails">
-                <label for="member1Name">Enter the Member Name in comma seperated value:</label>
-                <input type="text" id="member1Name" name="member1Name">
-                              
-            </div>
-            <input type="checkbox" id="Clash of minds" class="eventCheckbox" name="events[]" value="Clash of minds"> Clash of minds (Team of 3)<br>
-            <div id="clashOfMindsDetails" class="memberDetails">
-                <label for="clashMember1Name">Enter the Member Name in comma separated value:</label>
-                <input type="text" id="clashMember1Name" name="clashMember1Name">
-            </div>
-            <input type="checkbox" id="project expo" class="eventCheckbox" name="events[]" value="project expo"> project expo (Maximum 3 participant per team)<br>
-            <div id="projectExpoDetails" class="memberDetails">
-                <label for="projectExpoMember1Name">Enter the Member Name in comma separated value:</label>
-                <input type="text" id="projectExpoMember1Name" name="projectExpoMember1Name">
-            </div>
-            
-            <label for="events">Non-Technical Event:</label><br>
-
-            <input type="checkbox" id="Food Feast" class="eventCheckbox" name="events[]" value="Food Feast"> Food Feast (3 participant per team)<br>
-            <div id="foodFeastDetails" class="memberDetails">
-                <label for="foodFeastMember1Name">Enter the Member Name in comma separated value:</label>
-                <input type="text" id="foodFeastMember1Name" name="foodFeastMember1Name">
-            </div>
-            <input type="checkbox" id="HallOfWar" class="eventCheckbox" name="events[]" value="Hall Of War"> Hall of War<br>
-            <div id="hallOfWarDetails" class="memberDetails">
-                <label for="hallOfWarMember1Name">Enter the Member Name in comma separated value:</label>
-                <input type="text" id="hallOfWarMember1Name" name="hallOfWarMember1Name">
-            </div>
-            <input type="checkbox" id="Futsal" class="eventCheckbox" name="events[]" value="Futsal"> Futsal<br>
-            <div id="futsalDetails" class="memberDetails">
-                <label for="futsalMember1Name">Enter the Member Name in comma separated value:</label>
-                <input type="text" id="futsalMember1Name" name="futsalMember1Name">
-            </div>
-            <label for="events">Show Your Talent:</label><br>
-            <input type="checkbox" id="Photography" class="eventCheckbox" name="events[]" value="Photography"> Photography<br>
-            <input type="checkbox" id="Dance" class="eventCheckbox" name="events[]" value="Dance"> Dance<br>
-            <div id="danceDetails" class="memberDetails">
-                <label for="danceMember1Name">Enter the Member Name in comma separated value:</label>
-                <input type="text" id="danceMember1Name" name="danceMember1Name">
-            </div>
-            <input type="checkbox" id="Singing" class="eventCheckbox" name="events[]" value="Singing"> Singing<br>
-            <input type="checkbox" id="Silambam" class="eventCheckbox" name="events[]" value="Silambam"> Silambam<br>
-
+            <label>Select events you are willing to participate in:</label><br>
+            <label for="brain_buster">
+                <input type="checkbox" id="brain_buster" name="events[]" value="brain_buster">
+                Brain Buster
+            </label>
+            <label for="clash_of_minds">
+                <input type="checkbox" id="clash_of_minds" name="events[]" value="clash_of_minds">
+                Clash of Minds
+            </label>
+            <label for="circuit_debugging">
+                <input type="checkbox" id="circuit_debugging" name="events[]" value="circuit_debugging">
+                Circuit Debugging
+            </label>
+            <label for="paper_presentation">
+                <input type="checkbox" id="paper_presentation" name="events[]" value="paper_presentation">
+                Paper Presentation
+            </label>
+            <label for="hall_of_war">
+                <input type="checkbox" id="hall_of_war" name="events[]" value="hall_of_war">
+                Hall of War
+            </label>
+            <label for="food_feast">
+                <input type="checkbox" id="food_feast" name="events[]" value="food_feast">
+                Food Feast
+            </label>
+            <label for="talent" style="color: blue;">Show Your Talent:</label>
+            <label for="photography">
+                <input type="checkbox" id="photography" name="events[]" value="photography">
+                Photography
+            </label>
+            <label for="singing">
+                <input type="checkbox" id="singing" name="events[]" value="singing">
+                Singing
+            </label>
+            <label for="dance">
+                <input type="checkbox" id="dance" name="events[]" value="dance">
+                Dance
+            </label>
+            <label for="silambam">
+                <input type="checkbox" id="silambam" name="events[]" value="silambam">
+                Silambam
+            </label>
+            <label for="Other">
+                <input type="checkbox" id="Other" name="events[]" value="Other">
+                Other
+            </label>
+            <!-- Add other checkbox inputs here -->
             <div id="totalAmount"></div>
             <button type="button" id="fetchAmountButton" class="paymentButton" onclick="fetchAmount()">Fetch Amount</button>
-
             <div id="qrCodeContainer" style="display: none;">
                 <label for="qrCode">QR Code for Payment:</label><br>
                 <img id="qrCode" src="" alt="QR Code">
             </div>
             <button type="button" id="upiPaymentButton" class="paymentButton" onclick="proceedToPayment()">Proceed to Payment</button>
-
             <label for="upiId">Your UPI ID:</label>
             <input type="text" id="upiId" name="upiId" required>
-            
             <label for="transactionNumber">Transaction Number:</label>
             <input type="text" id="transactionNumber" name="transactionNumber" required>
-
-            <button type="submit">Submit</button>
-
+            <br><button type="submit">Submit</button>
         </form>
     </div>
-    <!-- Your HTML code -->
-        
-
-
     <script>
-        const checkboxes = document.querySelectorAll('.eventCheckbox');
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(checkbox => {
             checkbox.addEventListener('change', function() {
-                generateQR();
-                toggleMemberDetails(); // Call function to toggle member details
+                fetchAmount();
             });
         });
 
-        // JavaScript code
         async function fetchAmount() {
             generateQR();
         }
@@ -246,143 +181,59 @@
 
             qrCodeContainer.style.display = 'block';
             qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(qrData)}&size=150x150&margin=0`;
-
-
-            
             totalAmountContainer.textContent = `Total Amount Payable: Rs. ${totalAmount}`;
         }
+
         function proceedToPayment() {
             const upiId = document.getElementById('upiId').value;
             const totalAmount = document.getElementById('totalAmount').textContent.replace('Total Amount Payable: Rs. ', '');
             const transactionNumber = document.getElementById('transactionNumber').value;
             const paymentLink = `upi://pay?pa=magesh17032003@oksbi&pn=Mageshkumar%20K&am=${totalAmount}&cu=INR&tid=${transactionNumber}&aid=uGICAgMCy_PLaYw`;
-
             window.location.href = paymentLink;
         }
 
         function calculateTotal(formData) {
-            let total = 0;
-            if (formData.has('events[]')) {
-                const events = formData.getAll('events[]');
-                if (events.includes("Food Feast")) {
-                    total = 250; // If Food Feast is included, fixed amount is Rs. 250
-                } else {
-                    total = 50; // Otherwise, fixed amount is Rs. 50
+        let total = 0;
+        const events = formData.getAll('events[]');
+    
+        if (events.includes("food_feast") && events.length === 1) {
+            total = 200; // Only Food Feast selected, total is Rs. 200
+        } else if (events.includes("food_feast")) {
+            total = 250; // Food Feast and other events selected, total is Rs. 250
+        } else {
+            total = 50; // Other events selected, total is Rs. 50
+        }
+    
+        return total;
+        }
+
+
+        // Function to check if all fields are filled
+        function areAllFieldsFilled() {
+            const inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
+            for (let i = 0; i < inputs.length; i++) {
+                if (inputs[i].value === "") {
+                    return false; // Return false if any field is empty
                 }
             }
-            return total.toFixed(2);
+            return true; // Return true if all fields are filled
         }
 
-        // Function to toggle display of member details based on Circuit Debugging checkbox
-        function toggleMemberDetails() {
-            const circuitDebuggingCheckbox = document.getElementById('Circuit Debugging');
-            const circuitDebuggingDetails = document.getElementById('circuitDebuggingDetails');
-            if (circuitDebuggingCheckbox.checked) {
-                circuitDebuggingDetails.classList.add('active');
-            } else {
-                circuitDebuggingDetails.classList.remove('active');
-            }
-        }
-        // Event Listener for "Clash of minds" Checkbox
-        document.getElementById('Clash of minds').addEventListener('change', function() {
-            toggleClashOfMindsDetails();
-        });
-        document.getElementById('project expo').addEventListener('change', function() {
-            toggleProjectExpoDetails();
-        });
+        // Form submission function
+        function submitForm(event) {
+            event.preventDefault(); // Prevent default form submission behavior
 
-        // Event Listener for "Food Feast" Checkbox
-        document.getElementById('Food Feast').addEventListener('change', function() {
-            toggleFoodFeastDetails();
-        });
-        document.getElementById('Futsal').addEventListener('change', function() {
-            toggleFutsalDetails();
-        });
-        document.getElementById('HallOfWar').addEventListener('change', function() {
-            toggleHallOfWarDetails();
-        });
-    
-        // Event Listener for "Dance" Checkbox
-        document.getElementById('Dance').addEventListener('change', function() {
-            toggleDanceDetails();
-        });
-
-        // Function to toggle display of member details for Clash of minds
-        function toggleClashOfMindsDetails() {
-            const clashCheckbox = document.getElementById('Clash of minds');
-            const clashDetails = document.getElementById('clashOfMindsDetails');
-            if (clashCheckbox.checked) {
-                clashDetails.classList.add('active');
+            if (areAllFieldsFilled()) {
+                // All fields are filled, redirect to success.html
+                window.location.href = "success.html";
             } else {
-                clashDetails.classList.remove('active');
-            }
-        }
-        function toggleProjectExpoDetails() {
-            const projectExpoCheckbox = document.getElementById('project expo');
-            const projectExpoDetails = document.getElementById('projectExpoDetails');
-            if (projectExpoCheckbox.checked) {
-                projectExpoDetails.classList.add('active');
-            } else {
-                projectExpoDetails.classList.remove('active');
+                // Display message to fill all fields
+                alert("Please fill all fields.");
             }
         }
 
-        // Function to toggle display of member details for Food Feast
-        function toggleFoodFeastDetails() {
-            const foodFeastCheckbox = document.getElementById('Food Feast');
-            const foodFeastDetails = document.getElementById('foodFeastDetails');
-            if (foodFeastCheckbox.checked) {
-                foodFeastDetails.classList.add('active');
-            } else {
-                foodFeastDetails.classList.remove('active');
-            }
-        }
-        function toggleFutsalDetails() {
-            const futsalCheckbox = document.getElementById('Futsal');
-            const futsalDetails = document.getElementById('futsalDetails');
-            if (futsalCheckbox.checked) {
-                futsalDetails.classList.add('active');
-            } else {
-                futsalDetails.classList.remove('active');
-            }
-        }
-        function toggleHallOfWarDetails() {
-            const hallOfWarCheckbox = document.getElementById('HallOfWar');
-            const hallOfWarDetails = document.getElementById('hallOfWarDetails');
-            if (hallOfWarCheckbox.checked) {
-                hallOfWarDetails.classList.add('active');
-            } else {
-                hallOfWarDetails.classList.remove('active');
-            }
-        }
-    
-        // Function to toggle display of member details for Dance
-        function toggleDanceDetails() {
-            const danceCheckbox = document.getElementById('Dance');
-            const danceDetails = document.getElementById('danceDetails');
-            if (danceCheckbox.checked) {
-                danceDetails.classList.add('active');
-            } else {
-                danceDetails.classList.remove('active');
-            }
-        }
-        async function submitForm(event) {
-            event.preventDefault();
-            const form = document.getElementById('registrationForm');
-            const formData = new FormData(form);
-            const url = 'https://script.google.com/macros/s/AKfycbwC-VSMV8grnNYCeuYxBdwUkIKjbbVY0cl7q6iDb8LMpIr0JHyhtU8HhWLcIguiuC-w/exec'; // Replace with your web app URL
-    
-            await fetch(url, {
-                method: 'POST',
-                body: formData
-            });
-    
-            alert('Form submitted successfully!');
-            form.reset();
-        }
-
-        
-            
+        // Add submit event listener to the form
+        document.getElementById('registrationForm').addEventListener('submit', submitForm);
     </script>
 </body>
 </html>
