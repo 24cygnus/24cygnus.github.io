@@ -2,3 +2,42 @@ appscript link Registration form:
 https://script.google.com/macros/s/AKfycbwzvnN-fgD0Q7Qp7V0G34XvFesFhFZueCI7DEes7wvP-BgblkTMMYNjm-nI1MR5f_qG-w/exec
 
 checking which branck is uploading
+
+*********************
+Appscript 2/4/24
+*********************
+function doPost(e) {
+  var rawData = e.postData.contents;
+  testScript(rawData);
+}
+
+function testScript(rawData) {
+  // Splitting the raw data into an array of key-value pairs
+  var pairs = rawData.split('&');
+
+  // Specify the Sheet ID and Sheet Name
+  var sheet = SpreadsheetApp.openById('1lJ_mbNfLZinnp03UKX9zSW_ylqpV3JL4ifrsOXsw674').getSheetByName('LOG');
+
+  // Get current timestamp
+  var timestamp = new Date();
+
+  // Extract values and log them to the sheet in the same row
+  var lastRow = sheet.getLastRow() + 1;
+  var events = "";
+  var rowData = [timestamp]; // Add timestamp to the rowData
+  for (var i = 0; i < pairs.length; i++) {
+    var keyValue = pairs[i].split('=');
+    if (keyValue[0] == "events%5B%5D") {
+      var value = decodeURIComponent(keyValue[1].replace(/\+/g, ' '));
+      events += value + ", ";
+    } else {
+      var value = decodeURIComponent(keyValue[1].replace(/\+/g, ' '));
+      rowData.push(value);
+    }
+  }
+  events = events.slice(0, -2); // Remove the last comma and space
+  rowData.push(events);
+  sheet.appendRow(rowData);
+
+  Logger.log("Data received and logged successfully");
+}
